@@ -71,7 +71,7 @@ app.get('/api/persons/:id', (request, response, next) => {
             if (result) {
                 response.json(result)
             } else {
-                response.status(404).end()
+                response.status(404).json({ error: 'id not found' }).end()
             }
         })
         .catch(error => next(error))
